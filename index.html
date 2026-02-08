@@ -3,30 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valentine's Day😘, bishuuuu!</title>
+    <title>Happy Valentine's Day, My Love! 💖</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f30b0b; text-align: center; padding: 20px; }
-        img { ; max-width: 200px; border-radius: 10px; margin: 20px; }
-        .letter { max-width: 600px; margin: 0 auto; font-size: 18px; line-height: 1.6; }
-        form { max-width: 600px; margin: 20px auto; text-align: left; }
-        input, textarea, button { margin: 10px 0; padding: 8px; width: 100%; }
-        #answers { display: none; margin-top: 20px; text-align: left; background: #fff; padding: 10px; border-radius: 10px; }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef, #fecfef);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        h1 {
+            color: #e91e63;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .question {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #yes-btn {
+            background-color: #4caf50;
+            color: white;
+        }
+        #no-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        #yes-btn:hover {
+            background-color: #45a049;
+        }
+        #no-btn:hover {
+            background-color: #da190b;
+        }
+        .reaction {
+            display: none;
+            margin-top: 20px;
+        }
+        .reaction img {
+            max-width: 200px;
+            border-radius: 10px;
+        }
+        .reaction p {
+            font-size: 1.2em;
+            color: #e91e63;
+        }
+        .envelope {
+            display: none;
+            margin: 30px auto;
+            width: 200px;
+            height: 120px;
+            background: #f8f8f8;
+            border: 2px solid #e91e63;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: #e91e63;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+        .envelope::after {
+            content: '💌';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+        }
+        .letter {
+            display: none;
+            margin-top: 30px;
+            text-align: left;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: popOut 1s ease-out;
+        }
+        @keyframes popOut {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        .letter img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .letter video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .questions {
+            display: none;
+            margin-top: 30px;
+            text-align: left;
+        }
+        .questions h2 {
+            text-align: center;
+            color: #e91e63;
+        }
+        .questions label {
+            display: block;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+        .questions input, .questions textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e91e63;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .answers {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            background: #ffebee;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .answers h3 {
+            text-align: center;
+            color: #e91e63;
+        }
+        .marriage-question {
+            display: none;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .marriage-question input {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #e91e63;
+            border-radius: 5px;
+            font-size: 1em;
+            text-align: center;
+        }
+        .ring {
+            display: none;
+            margin: 30px auto;
+            width: 200px;
+            height: 200px;
+            background: url('https://media.giphy.com/media/3o7TKz9bX9R8TgWq5O/giphy.gif') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #e91e63;
+            transform: rotate(-45deg);
+            animation: float 6s linear infinite;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: #e91e63;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(-45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+        audio {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <h1>Happy Valentine's Day, My Love😘</h1>
-        <img src="https://video.fbwa5-1.fna.fbcdn.net/v/t69.46293-2/627718350_788539684265948_6068936774511258864_n.?stp=dst-jpg_p480x480_tt6&_nc_cat=107&ccb=1-7&_nc_sid=942482&_nc_ohc=iQv5VaJKT3YQ7kNvwHdZSCr&_nc_oc=AdkwblVkmvMHkUBvJN0sypT-prlAe83qlWG7nyb3e801Ls9sPFGodHE2IZYTT79sI10&_nc_zt=28&_nc_ht=video.fbwa5-1.fna&_nc_gid=mgGV8-YJdLe50mHI6FJKog&oh=03_Q7cD4gHaSBlAqAuJIKLUVKD5uJIN-xhUsuLvrt98qRpgQSQFvA&oe=69893019" alt="My beautiful girlfriend">
-    <div class="letter">
+    <div class="container">
+        <h1>Happy Valentine's Day, My Love! 💖</h1>
 
-        
-        
+        <!-- Initial Question -->
+        <div id="valentine-question">
+            <p class="question">Do you want to be my Valentine? 😘</p>
+            <button id="yes-btn">Yes! 💕</button>
+            <button id="no-btn">No 😢</button>
+        </div>
 
-    
-        <p>Dear [bishweeeee],</p>
-        <p>[I love youu 😘 and always willl  😝 timi sitaaa bahira 3 choti matra vete hola tara tyo paal haru mero lagiii (vanna aayenaa🤣) thiyoo🤣
-Ramro thiyooo]</p>
+        <!-- Sad Reaction for No -->
+        <div class="reaction" id="sad-reaction">
+            <img src="https://media.giphy.com/media/3o7TKz9bX9R8TgWq5O/giphy.gif" alt="Sad broken heart GIF">
+            <p>Oh no, that really hurts my heart! 😢 Please say yes?</p>
+        </div>
 
-<p> jastai bhatbhateni ma vet daaa aani pics click garda </p>
+        <!-- Envelope -->
+        <div class="envelope" id="envelope"></div>
+
+        <!-- Letter Section -->
+        <div class="letter" id="letter">
+            <h2>My Dearest Love,</h2>
+            <p>[I love youu 😘 and always willl  😝 timi sitaaa bahira 3 choti matra vete hola tara tyo paal haru mero lagiii (vanna aayenaa🤣) thiyoo🤣
+Ramro thiyooo</p>>
+            <!-- Placeholder for Images -->
+            <img src="https://video.fbwa5-1.fna.fbcdn.net/v/t69.46293-2/627718350_788539684265948_6068936774511258864_n.?stp=dst-jpg_p480x480_tt6&_nc_cat=107&ccb=1-7&_nc_sid=942482&_nc_ohc=iQv5VaJKT3YQ7kNvwHdZSCr&_nc_oc=AdkwblVkmvMHkUBvJN0sypT-prlAe83qlWG7nyb3e801Ls9sPFGodHE2IZYTT79sI10&_nc_zt=28&_nc_ht=video.fbwa5-1.fna&_nc_gid=mgGV8-YJdLe50mHI6FJKog&oh=03_Q7cD4gHaSBlAqAuJIKLUVKD5uJIN-xhUsuLvrt98qRpgQSQFvA&oe=69893019"
+
+<p> jastai bhatbhateni ma vet daaa aani pics click garda😘 </p>
 
 <img src="https://scontent.fbwa5-1.fna.fbcdn.net/v/t1.15752-9/623864495_1634178094257017_6231546553863593007_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=-H3nHsk4likQ7kNvwG4nLQ-&_nc_oc=AdmJhZEqyK42QaPwqz2HhhJeZ97Gql4nrHM5pxro0rlyQ9EWQFEUynb-J-Yaxk6OHnk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbwa5-1.fna&oh=03_Q7cD4gG_skkw-ak4rFeARM5y9MUZbyRxepyDB7WaoEth1c8QSg&oe=69AEC77F"  
 
@@ -37,55 +270,218 @@ Ramro thiyooo]</p>
 
 >
 
+
+
 <img src="https://scontent.fbwa5-2.fna.fbcdn.net/v/t1.15752-9/617798796_1606613423854185_5805701317752313729_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=owfNcV6UFscQ7kNvwHbUfCK&_nc_oc=AdnL1Z_FXWSDp1pQ4N0RgBkX2Vg58lPacEaSBwNGVAFm47Sk1MsB4k6qcvyBcsgLRdo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbwa5-2.fna&oh=03_Q7cD4gEjKbicej7yD5ardWoxOB5sKcEv8neW08xLoe5_jyTHiQ&oe=69AECC00" 
+
+
+
+
+
 
 
 <p>ani chaupari maa vete ko kaa birsina sakxu raaaa😘</p>
 
 
 <img src="https://scontent.fbwa5-1.fna.fbcdn.net/v/t1.15752-9/628419139_1121228116686749_8964421891131451191_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=9tkfqmHLaGwQ7kNvwHuC7fu&_nc_oc=AdlXNNArUUX5xBYAdWJOsGIK9LLlXLetNs8lPc9WOAJf6kaWJMRevc0FFFJYc50_j7M&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbwa5-1.fna&oh=03_Q7cD4gGh34mLsYaR-l76Qo-UKv7-ySisBwZCNae9dNmDb8MLHg&oe=69AEC4C3"
+<p></p>
 
-
-
-<h1> laau videooooo😘</h1><br>
-
-<iframe width="560" height="315" src="https://image2url.com/r2/default/files/1770550857160-9ee53afd-8743-4c97-885f-1ed48c77eb94.mp4" 
+            
+            <iframe width="560" height="315" src="https://image2url.com/r2/default/files/1770550857160-9ee53afd-8743-4c97-885f-1ed48c77eb94.mp4" 
         title="YouTube video player" frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
         allowfullscreen></iframe>
+
+
 
         <p></p>
 
-<iframe width="560" height="315" src="https://image2url.com/r2/default/files/1770551784368-db0e55dc-2743-4cf6-89e8-941ea066d6d6.mp4" 
+        <iframe width="560" height="315" src="https://image2url.com/r2/default/files/1770551784368-db0e55dc-2743-4cf6-89e8-941ea066d6d6.mp4" 
         title="YouTube video player" frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
         allowfullscreen></iframe>
 
-  
+            <p>A little video of our fun adventures together! 💕</p>
+            
+            <p>I love you more than words can say. Will you be mine forever? 😘</p>
+            <p>Yours samarth,<br>Your Loving Partner samrthhhhhh</p>
+        </div>
 
+        <!-- Questions Section -->
+        <div class="questions" id="questions">
+            <h2>Now, a few questions for you, my love! 💕</h2>
+            <form id="question-form">
+                <label for="moment-q">What's your favorite moment with me? (Tell me why it stands out!) 🌟</label>
+                <textarea id="moment-q" rows="4" placeholder="Share that special memory..." required></textarea>
+                
+                <label for="comedy-q">Random comedy question: If I were a superhero, what would my silly power be? (e.g., making bad jokes irresistible) 😂</label>
+                <input type="text" id="comedy-q" placeholder="Your funny answer here..." required>
+                
+                <label for="love-q">Do you love meee? 😍</label>
+                <input type="text" id="love-q" placeholder="Yes, I do! Or tell me why..." required>
+                
+                <label for="something-q">Something for mee? (Like a message, gift idea, or just something sweet) 🎁</label>
+                <textarea id="something-q" rows="4" placeholder="Write something special here..." required></textarea>
+                
+                <button type="submit" style="background-color: #e91e63; color: white;">Submit Answers 💖</button>
+            </form>
+        </div>
 
+        <!-- Answers Display -->
+        <div class="answers" id="answers">
+            <h3>Your Answers:</h3>
+            <p><strong>Favorite moment:</strong> <span id="answer-moment"></span></p>
+            <p><strong>Comedy question:</strong> <span id="answer-comedy"></span></p>
+            <p><strong>Do you love meee?</strong> <span id="answer-love"></span></p>
+            <p><strong>Something for mee?</strong> <span id="answer-something"></span></p>
+            <p>Thank you for sharing! I love you so much. 😘 (Note: As the creator, you can check the browser's console or local storage for these answers if needed.)</p>
+        </div>
 
-<p> 7 ma dekhe the timlai scout ma thiyeuuu aaba tes bella bolena tara 8 ma bolna tha lee timi ramro lagthiyoo tara maile sakdina hola vanera try gare na tara bhagwan le sune ki k hoo tara aaile maile timlai paa xuu i am so happy to got you ty for everthingg i lovee you 😝</p>
+        <!-- Marriage Question with Input -->
+        <div class="marriage-question" id="marriage-question">
+            <p class="question">Do you want to marry me? 💍</p>
+            <form id="marriage-form">
+                <input type="text" id="marriage-answer" placeholder="Type 'yes' or 'no'..." required>
+                <br>
+                <button type="submit" style="background-color: #e91e63; color: white; margin-top: 20px;">Submit Answer 💖</button>
+            </form>
+        </div>
 
-<img src="https://scontent.fbwa5-1.fna.fbcdn.net/v/t1.15752-9/626734815_2151551025248893_3508513748016778599_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=9G0wwJE_E_cQ7kNvwG9Kq5J&_nc_oc=Adm6LkEgnxrSztH9DZouWQgMZfMnC2QgzhlDp_RGiqdK5rnh3846I3kx3bqkxO2P_Y0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbwa5-1.fna&oh=03_Q7cD4gGD-ocFMVcA47fi1NWcbnO2YGPJzKVlivZe75KROeiGbg&oe=69AEE86F"
-
-<p></p>
-<img src="https://scontent.fbwa5-1.fna.fbcdn.net/v/t1.15752-9/623748239_4251611701775861_4254032404126235600_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=VsaDIVcmuqkQ7kNvwHJ6JDx&_nc_oc=AdktbApw51qZy5LYYUzK5ePf70YJrt-SPykci_31b6s4nsbBpm7nyZODjrWPmM87B38&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbwa5-1.fna&oh=03_Q7cD4gF7Uhi5fYm29TSlbVnqTj6AS0samqn2J6pactj9Mw2x_A&oe=69AEDB4C"
-<p>deherai ramri vayeuuuuuuuu kkkkkkkkkkkkkk🤣</p>
-
-<img src="https://scontent.fbwa5-1.fna.fbcdn.net/v/t1.15752-9/628182780_1436152241192122_6100626440488424546_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=b0F1vByHLw0Q7kNvwG9uLzq&_nc_oc=AdlATp3Z0Xl6Ijsd5WeSzCUrlgV-2HdvSWkVUkMlUvdShqCVIaYCUEIJ_CBCgjU_uec&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbwa5-1.fna&oh=03_Q7cD4gGFcKHKPAAwO8hVsh1wx-GjCRDcz2vk5-4hjU8Rc6zXPQ&oe=69AECE6C"
-<p> mali na xodeeee haiiiiiii</p>
-<img src="https://scontent.fbwa5-1.fna.fbcdn.net/v/t1.15752-9/623866203_760515450466299_4567559705817827874_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=0024fc&_nc_ohc=HpVfQRrMO2MQ7kNvwE9l0ZI&_nc_oc=AdmEepCpdS9sKfOta3EUxzyye1kfYaMXxl7pp4xd_QzGYgb_IdoeEYgcynBbX16Di0U&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbwa5-1.fna&oh=03_Q7cD4gEd86UoaEvpm5EV-cpcvbf-TNwNr58TGuoPX8PS2cvGwg&oe=69AEC8C4"
-
-<p> aaru ta kai vanna xoinaaaa love youuuuuu 😘 mali xodera na gayeee i will take care off youuuu aafno vanda deherai garxuu aani happy valentine 😘</p>
-
-
-
-
-
-
-
-
-
+        <!-- Ring -->
+        <div class="ring" id="ring">
+            <p style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); color: #e91e63; font-weight: bold;">Congratulations! 💍</p>
+        </div>
     </div>
-    
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Floating Hearts Animation
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, 6000);
+        }
+        setInterval(createHeart, 500);
+
+        // Play Background Music
+        const audio = document.getElementById('bg-music');
+        audio.play().catch(() => {
+            // Autoplay might be blocked; user can manually play if needed
+        });
+
+        // Game Logic
+        let noClickCount = 0;
+        const yesBtn = document.getElementById('yes-btn');
+        const noBtn = document.getElementById('no-btn');
+        const questionDiv = document.getElementById('valentine-question');
+        const sadReaction = document.getElementById('sad-reaction');
+        const envelope = document.getElementById('envelope');
+        const letter = document.getElementById('letter');
+        const questions = document.getElementById('questions');
+        const answers = document.getElementById('answers');
+        const marriageQuestion = document.getElementById('marriage-question');
+        const marriageForm = document.getElementById('marriage-form');
+        const ring = document.getElementById('ring');
+        const form = document.getElementById('question-form');
+
+        // Initial Valentine Question Logic
+        noBtn.addEventListener('click', () => {
+            noClickCount++;
+            sadReaction.style.display = 'block';
+            setTimeout(() => {
+                sadReaction.style.display = 'none';
+            }, 3000);
+            
+            // Make Yes button bigger
+            const scale = 1 + noClickCount * 0.3;
+            yesBtn.style.transform = `scale(${scale})`;
+            yesBtn.style.fontSize = `${1.2 + noClickCount * 0.2}em`;
+            
+            // After 5 No's, hide No button and force Yes
+            if (noClickCount >= 5) {
+                noBtn.style.display = 'none';
+                alert("You have to say yes now! 😘 My heart can't take it anymore!");
+            }
+        });
+
+        yesBtn.addEventListener('click', () => {
+            questionDiv.style.display = 'none';
+            sadReaction.style.display = 'none';
+            envelope.style.display = 'block';
+        });
+
+        // Envelope Click to Open Letter
+        envelope.addEventListener('click', () => {
+            envelope.style.display = 'none';
+            letter.style.display = 'block';
+            // After a short delay, show questions
+            setTimeout(() => {
+                questions.style.display = 'block';
+            }, 2000);
+        });
+
+        // Form Submit to Show Answers
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const momentAnswer = document.getElementById('moment-q').value;
+            const comedyAnswer = document.getElementById('comedy-q').value;
+            const loveAnswer = document.getElementById('love-q').value;
+            const somethingAnswer = document.getElementById('something-q').value;
+            
+            // Display answers
+            document.getElementById('answer-moment').textContent = momentAnswer;
+            document.getElementById('answer-comedy').textContent = comedyAnswer;
+            document.getElementById('answer-love').textContent = loveAnswer;
+            document.getElementById('answer-something').textContent = somethingAnswer;
+            
+            // Store in localStorage for you to see
+            localStorage.setItem('valentineMomentAnswer', momentAnswer);
+            localStorage.setItem('valentineComedyAnswer', comedyAnswer);
+            localStorage.setItem('valentineLoveAnswer', loveAnswer);
+            localStorage.setItem('valentineSomethingAnswer', somethingAnswer);
+            
+            // Log to console
+            console.log('Moment Answer:', momentAnswer);
+            console.log('Comedy Answer:', comedyAnswer);
+            console.log('Love Answer:', loveAnswer);
+            console.log('Something Answer:', somethingAnswer);
+            
+            // Hide form and show answers, then marriage question
+            questions.style.display = 'none';
+            answers.style.display = 'block';
+            setTimeout(() => {
+                marriageQuestion.style.display = 'block';
+            }, 3000);
+        });
+
+        // Marriage Form Submit Logic
+        marriageForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const answer = document.getElementById('marriage-answer').value.toLowerCase().trim();
+            if (answer === 'no') {
+                sadReaction.style.display = 'block';
+                setTimeout(() => {
+                    sadReaction.style.display = 'none';
+                }, 5000); // Show longer for sadness
+                marriageQuestion.style.display = 'none';
+            } else if (answer === 'yes') {
+                marriageQuestion.style.display = 'none';
+                ring.style.display = 'block'; // Directly show the ring
+            } else {
+                alert("Please type 'yes' or 'no'!");
+            }
+        });
+    </script>
+</body>
+</html>
